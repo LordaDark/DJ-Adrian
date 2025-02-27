@@ -1,0 +1,15 @@
+.Body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Home {
+    width: 95%;
+    border: solid 2px #d4af37;
+    border-radius: 20px;
+}
+
+html {
+    scroll-behavior: smooth;
+}

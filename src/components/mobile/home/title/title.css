@@ -1,0 +1,24 @@
+/* Title.css */
+.title-container {
+    position: relative;
+    width: 100%;
+    height: 50vh; /* Occupa il 70% della viewport, ma potrebbe essere cambiato su mobile */
+    background-image: url('../../../../assets/sfondo.png');
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+/* Testo principale */
+.title-text {
+    color: white;
+    font-size: 3rem; /* Dimensione grande su schermo desktop */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin: 0;
+    max-width: 90%; /* Limita la larghezza del testo */
+}

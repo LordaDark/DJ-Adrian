@@ -1,0 +1,22 @@
+.title-container {
+    position: relative;
+    width: 100%;
+    height: 70vh; /* Occupa tutta la viewport */
+    background-image: url('../../../../assets/sfondo.png'); /* Inserisci qui il link della tua foto */
+    background-size: cover; /* La foto copre tutta l'area */
+    background-position: center center; /* Centra l'immagine */
+    display: flex;
+    justify-content: center; /* Centra il contenuto orizzontalmente */
+    align-items: center; /* Centra il contenuto verticalmente */
+    border-radius: 20px;
+    padding: 0;
+}
+
+.title-text {
+    color: white; /* Colore del testo */
+    font-size: 3rem; /* Puoi regolare la dimensione del font */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombra per migliorare la visibilità */
+    text-align: center;
+    margin: 0;
+}

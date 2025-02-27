@@ -1,0 +1,63 @@
+/* Stile generale */
+.dashboard-container {
+    padding: 20px;
+    background-image: url('../../../assets/background.png');
+    min-height: 93vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cornice {
+    width: 80%;
+    height: 50%;
+    background-color: rgb(102, 165, 219);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #d4af37;
+    border-radius: 30px;
+}
+
+/* Container delle card */
+.cards-container {
+display: flex;
+justify-content: center;
+gap: 20px;
+margin: 50px;
+}
+
+/* Singola card */
+.card {
+background-color: #0066cc;
+color: white;
+width: 180px;
+height: 180px;
+border-radius: 15px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+border: 3px solid #d4af37;
+}
+
+.card:hover {
+transform: translateY(-5px);
+box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Icona */
+.icon {
+font-size: 40px;
+margin-bottom: 10px;
+}
+
+/* Titolo */
+.card h3 {
+margin: 0;
+font-size: 18px;
+font-weight: bold;
+}

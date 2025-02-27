@@ -1,0 +1,113 @@
+/* Design del header */
+.header {
+    width: 90%;
+    height: 60px;
+    background-color: #0066cc;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    z-index: 1000;
+    border-radius: 20px;
+    transition: width 0.5s ease, border-radius 0.5s ease, transform 0.5s ease, top 0.5s ease, left 0.5s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    border: solid 0.0001px #d4af37;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Modifica l'header in "mini-header" */
+.header.mini-header {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    top: 10px;  /* Posiziona la pallina in cima */
+    left: auto;  /* Rimuove il centraggio */
+    right: 20px;  /* Posiziona la pallina a destra */
+    transform: translateX(0);  /* Non necessario, ma garantisce la transizione */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Nascondi il logo e l'immagine del logo quando è "mini-header" */
+.header.mini-header .logoimg,
+.header.mini-header .logo {
+    display: none;  /* Nasconde sia il logo immagine che il logo testuale */
+}
+
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logo a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Navigazione */
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffcc00;
+}
+
+/* Icona menu */
+.menu-icon {
+    height: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoimg img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.right {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
