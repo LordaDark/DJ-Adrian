@@ -1,5 +1,5 @@
 /* Stile generale */
-.dashboard-container {
+.admin-container {
     padding: 20px;
     background-image: url('../../../assets/background.png');
     min-height: 93vh;
@@ -8,7 +8,7 @@
     justify-content: center;
 }
 
-.cornice {
+.cornice-admin {
     width: 80%;
     height: 50%;
     background-color: rgb(102, 165, 219);

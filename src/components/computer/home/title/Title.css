@@ -1,7 +1,7 @@
-.title-container {
+.title-container-computer {
     position: relative;
     width: 100%;
-    height: 70vh; /* Occupa tutta la viewport */
+    height: 100vh; /* Occupa tutta la viewport */
     background-image: url('../../../../assets/sfondo.png'); /* Inserisci qui il link della tua foto */
     background-size: cover; /* La foto copre tutta l'area */
     background-position: center center; /* Centra l'immagine */

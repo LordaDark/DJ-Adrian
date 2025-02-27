@@ -1,0 +1,57 @@
+/* Global styles for the about section */
+.about-container {
+    background-color: white; /* Blue theme color */
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cornice {
+    background-color: #0066cc; /* Blue theme color */
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    border-radius: 20px;
+}
+
+.about-content {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background for elegance */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-title {
+font-size: 36px;
+color: #d4af37; /* Gold color */
+font-weight: bold;
+margin-bottom: 20px;
+}
+
+.about-description {
+font-size: 18px;
+line-height: 1.6;
+color: white;
+font-weight: 300;
+}
+
+@media screen and (max-width: 768px) {
+.about-content {
+    padding: 30px;
+}
+
+.about-title {
+    font-size: 30px;
+}
+
+.about-description {
+    font-size: 16px;
+}
+}

@@ -1,21 +1,21 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "./header/Header";
-import "./dashboard.css";
+import Header from "./header/Header_admin";
+import "./admin.css";
 
-const Dashboard = () => {
+const Admin = () => {
   const navigate = useNavigate();
 
   const items = [
-    { title: "Musica", path: "/music", icon: "🎵" },
-    { title: "Eventi", path: "/eventi", icon: "🎉" },
-    { title: "Servizi", path: "/servizi", icon: "🛠️" },
+    { title: "Musica", path: "/music-admin", icon: "🎵" },
+    { title: "Eventi", path: "/eventiadmin", icon: "🎉" },
+    { title: "Utenti", path: "/utenti", icon: "🛠️" },
   ];
 
   return (
-    <div className="dashboard-container">
+    <div className="admin-container">
       <Header />
-      <div className="cornice">
+      <div className="cornice-admin">
         <div className="cards-container">
           {items.map((item, index) => (
             <div key={index} className="card" onClick={() => navigate(item.path)}>
@@ -29,4 +29,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Admin;

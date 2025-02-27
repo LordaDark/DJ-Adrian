@@ -44,6 +44,7 @@ const Header = () => {
           <nav>
             <ul className="nav-links">
               <li><a href="#title">Home</a></li>
+              <li><a href="#about">Chi sono</a></li>
               <li><a href="#eventi">Eventi</a></li>
               <li><a href="#service">Servizi</a></li>
               <li><a href="/login">Login</a></li>

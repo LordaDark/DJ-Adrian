@@ -20,6 +20,7 @@ const Header = () => {
         <div className="full-screen-menu">
           <ul className="menu-list">
             <li><a href="#title">Home</a></li>
+            <li><a href="#about">Chi sono</a></li>
             <li><a href="#eventi">Eventi</a></li>
             <li><a href="#service">Servizi</a></li>
             <li className="close-menu" onClick={() => setMenuOpen(false)}>Chiudi</li>

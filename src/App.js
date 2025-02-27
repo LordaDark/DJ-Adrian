@@ -10,6 +10,9 @@ import MobileEventiAdmin from './components/mobile/admin/eventi/MobileEventiAdmi
 import Login from './components/computer/login/Login';
 import Register from './components/computer/register/Register';
 import Dashboard from './components/computer/dashboard/Dashboard';
+import Music from './components/computer/dashboard/music/Home-music';
+import Eventi from './components/computer/dashboard/eventi/Eventi-page';
+import Admin from './components/computer/admin/Home-admin';
 
 function App() {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
@@ -24,6 +27,9 @@ function App() {
             <Route path="/login" element={<Login />} /> {/* Pagina login accessibile solo da computer */}
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/music" element={<Music />} />
+            <Route path="/eventi" element={<Eventi />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
         </div>
       </Router>

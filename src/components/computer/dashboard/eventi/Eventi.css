@@ -1,16 +1,24 @@
 /* Stile per il contenitore principale degli eventi */
-.eventi-container-mobile {
-width: 80%;
-margin: 50px auto;
-padding: 20px;
-background-color: #ffffff;
-border: solid 1px #d4af37;
-border-radius: 8px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.eventi-container-page {
+    width: 100%;
+}
+
+.cornice-eventi {
+    width: 90%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: solid 1px #d4af37;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
 }
 
 /* Titolo principale degli eventi */
-.eventi-container-mobile h2 {
+.eventi-container-page h2 {
     color: #333333;
     font-size: 32px;
     text-align: center;
@@ -19,10 +27,11 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Lista degli eventi */
-.eventi-list {
+.eventi-list-page {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 80%;
 }
 
 /* Stile per ogni singolo evento */

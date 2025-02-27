@@ -3,6 +3,7 @@ import Header from './header/Header';
 import Title from './title/Title';
 import Eventi from './eventi/Eventi';
 import Service from './service/Service';
+import About from './about/About';
 import './Home.css';
 
 const Home = () => {
@@ -15,6 +16,9 @@ const Home = () => {
         <div className='Home'>
           <div id="title">
             <Title />
+          </div>
+          <div id="about">
+            <About />
           </div>
           <div id="eventi">
             <Eventi />
