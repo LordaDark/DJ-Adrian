@@ -1,0 +1,70 @@
+/* Colori del tema */
+:root {
+--blu: #0066cc;
+--bianco: #d3d3d3;
+--oro: #d4af37;
+}
+
+body {
+font-family: Arial, sans-serif;
+background-color: var(--bianco);
+margin: 0;
+padding: 0;
+}
+
+.utenti-container {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: var(--bianco);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 100px;
+}
+
+.title {
+text-align: center;
+color: var(--blu);
+font-size: 36px;
+margin-bottom: 20px;
+}
+
+.utenti-list {
+overflow-x: auto;
+}
+
+.utenti-table {
+width: 100%;
+border-collapse: collapse;
+}
+
+.utenti-table th,
+.utenti-table td {
+padding: 12px;
+text-align: left;
+border-bottom: 1px solid #ddd;
+}
+
+.utenti-table th {
+background-color: var(--blu);
+color: var(--bianco);
+}
+
+.utenti-table tr:hover {
+background-color: #f1f1f1;
+}
+
+.action-btn {
+background-color: var(--oro);
+color: var(--bianco);
+border: none;
+padding: 6px 12px;
+margin: 0 5px;
+cursor: pointer;
+border-radius: 4px;
+transition: background-color 0.3s ease;
+}
+
+.action-btn:hover {
+background-color: #c79a2d;
+}

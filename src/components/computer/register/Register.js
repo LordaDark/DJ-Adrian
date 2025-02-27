@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../../firebase-config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, setDoc, doc } from "firebase/firestore"; // Importa Firestore
 import "./register.css";
 
 const Register = () => {
@@ -22,7 +23,20 @@ const Register = () => {
     }
 
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      // Registrazione dell'utente con email e password
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Ottieni Firestore
+      const db = getFirestore();
+
+      // Aggiungi i dettagli dell'utente alla collezione "users"
+      await setDoc(doc(db, "users", user.uid), {
+        name: name,
+        email: email,
+        role: "user", // Puoi cambiare il ruolo in base alle necessità
+      });
+
       navigate("/dashboard"); // Reindirizza alla dashboard o altra pagina
     } catch (err) {
       setError(err.message);

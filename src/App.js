@@ -13,6 +13,7 @@ import Dashboard from './components/computer/dashboard/Dashboard';
 import Music from './components/computer/dashboard/music/Home-music';
 import Eventi from './components/computer/dashboard/eventi/Eventi-page';
 import Admin from './components/computer/admin/Home-admin';
+import Utenti from './components/computer/admin/utenti/Utenti';
 
 function App() {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
@@ -30,6 +31,7 @@ function App() {
             <Route path="/music" element={<Music />} />
             <Route path="/eventi" element={<Eventi />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/utenti" element={<Utenti />} />
           </Routes>
         </div>
       </Router>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../../../../firebase-config';
 import { collection, getDocs, addDoc, updateDoc, doc, deleteDoc } from 'firebase/firestore';
+import Header from "../header/Header_admin";
 import './eventiadmin.css';
 
 const EventiAdmin = () => {
@@ -98,6 +99,8 @@ const EventiAdmin = () => {
 
   return (
     <div className="eventi-admin-container">
+      <Header />
+      
       <h2>Gestisci Eventi</h2>
 
       <div className="create-event">
