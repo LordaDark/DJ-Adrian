@@ -1,43 +1,58 @@
-// src/context/EventContext.js
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
 // Creiamo il contesto
 export const EventContext = createContext();
 
-// Provider per gestire lo stato degli eventi
+// Componente provider per il contesto degli eventi
 export const EventProvider = ({ children }) => {
-  const [eventi, setEventi] = useState([
-    { id: 1, nome: "Concerto di Musica Classica", data: "2025-03-01", isVisible: true },
-    { id: 2, nome: "Seminario di Tecnologia", data: "2025-03-10", isVisible: true },
-    { id: 3, nome: "Fiera dell'Arte", data: "2025-03-15", isVisible: false },
-  ]);
+  // Stato per memorizzare gli eventi
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // Aggiungi un nuovo evento
-  const handleCreateEvent = (nome, data) => {
-    const newEvent = {
-      id: eventi.length + 1,
-      nome,
-      data,
-      isVisible: true,
+  // Funzione per caricare gli eventi (puoi sostituirla con una chiamata API o un database)
+  useEffect(() => {
+    // Esempio di carico degli eventi, puoi sostituirlo con il tuo metodo (es. chiamata a Firebase)
+    const fetchEvents = async () => {
+      try {
+        // Supponiamo di avere una funzione che recupera gli eventi da un'API o un database
+        const response = await fetch('/api/events'); // Modifica con il tuo URL dell'API
+        const data = await response.json();
+        setEvents(data);
+      } catch (error) {
+        console.error("Errore nel caricare gli eventi:", error);
+      } finally {
+        setLoading(false);
+      }
     };
-    setEventi([...eventi, newEvent]);
+
+    fetchEvents();
+  }, []); // Solo al caricamento iniziale del componente
+
+  // Funzione per aggiungere un nuovo evento
+  const addEvent = (event) => {
+    setEvents(prevEvents => [...prevEvents, event]);
   };
 
-  // Rimuovi un evento
-  const handleDeleteEvent = (id) => {
-    setEventi(eventi.filter(evento => evento.id !== id));
+  // Funzione per rimuovere un evento
+  const removeEvent = (eventId) => {
+    setEvents(prevEvents => prevEvents.filter(event => event.id !== eventId));
   };
 
-  // Cambia visibilità di un evento
-  const handleToggleVisibility = (id) => {
-    setEventi(eventi.map(evento => 
-      evento.id === id ? { ...evento, isVisible: !evento.isVisible } : evento
+  // Funzione per aggiornare un evento
+  const updateEvent = (updatedEvent) => {
+    setEvents(prevEvents => prevEvents.map(event => 
+      event.id === updatedEvent.id ? updatedEvent : event
     ));
   };
 
   return (
-    <EventContext.Provider value={{ eventi, handleCreateEvent, handleDeleteEvent, handleToggleVisibility }}>
+    <EventContext.Provider value={{ events, loading, addEvent, removeEvent, updateEvent }}>
       {children}
     </EventContext.Provider>
   );
+};
+
+// Hook per usare facilmente il contesto
+export const useEvents = () => {
+  return useContext(EventContext);
 };

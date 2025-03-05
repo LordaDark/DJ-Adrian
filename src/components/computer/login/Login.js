@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../../../firebase-config";
+import { auth, db } from "../../../firebase-config";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
 import "./login.css";
 
 const Login = () => {
@@ -15,10 +16,30 @@ const Login = () => {
     setError(null);
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/dashboard"); // Reindirizza alla dashboard dopo il login
+      // Accedi con email e password
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Controlla se l'utente è disabilitato
+      const userRef = doc(db, "users", user.uid);
+      const userSnap = await getDoc(userRef);
+      const userData = userSnap.data();
+
+      if (userData && userData.isDisabled) {
+        setError("Il tuo account è disabilitato.");
+        return;
+      }
+
+      // Controlla il ruolo dell'utente e reindirizza
+      if (userData && userData.role === "admin") {
+        navigate("/admin"); // Reindirizza alla pagina Admin se l'utente è un amministratore
+      } else {
+        navigate("/dashboard"); // Reindirizza alla dashboard per gli altri utenti
+      }
+
     } catch (err) {
-      setError("Email o password non corretti."); // Messaggio generico per sicurezza
+      setError("Email o password non corretti.");
+      console.error(err);
     }
   };
 

@@ -8,7 +8,7 @@ const About = () => {
             <div className="about-content">
                 <h1 className="about-title">About DJ Adrian</h1>
                 <p className="about-description">
-                DJ Adrian is a seasoned professional who has been captivating audiences with his unique blend of electronic beats and mesmerizing rhythms. With years of experience in the industry, he has created unforgettable experiences for music lovers around the world. Whether performing live or creating new mixes, DJ Adrian continues to push boundaries and redefine the sound of modern dance music.
+                  DJ Adrian è un professionista esperto che ha affascinato il pubblico con il suo mix unico di beat elettronici e ritmi ipnotizzanti. Con anni di esperienza nel settore, ha creato esperienze indimenticabili per gli amanti della musica in tutto il mondo. Che si esibisca dal vivo o crei nuovi mix, DJ Adrian continua a superare i confini e a ridefinire il sound della moderna musica dance.
                 </p>
             </div>
         </div>

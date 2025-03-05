@@ -2,7 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
-import { EventProvider } from './context/EventContext'; // Importiamo il provider
+import { EventProvider } from './context/EventContext';
 import DesktopHome from './components/computer/home/Home';
 import MobileHome from './components/mobile/home/Home';
 import EventiAdmin from './components/computer/admin/eventi/EventiAdmin';
@@ -14,24 +14,63 @@ import Music from './components/computer/dashboard/music/Home-music';
 import Eventi from './components/computer/dashboard/eventi/Eventi-page';
 import Admin from './components/computer/admin/Home-admin';
 import Utenti from './components/computer/admin/utenti/Utenti';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
   return (
-    <EventProvider> {/* Avvolgiamo l'app con il provider */}
+    <EventProvider>
       <Router>
         <div className="App">
           <Routes>
             <Route path="/" element={isMobile ? <MobileHome /> : <DesktopHome />} />
-            <Route path="/eventiadmin" element={isMobile ? <MobileEventiAdmin /> : <EventiAdmin />} />
-            <Route path="/login" element={<Login />} /> {/* Pagina login accessibile solo da computer */}
+
+            {/* Proteggi la rotta /eventiadmin con il permesso eventsAccess */}
+            <Route 
+              path="/eventiadmin" 
+              element={
+                <PrivateRoute requiredPermission="eventsAccess">
+                  {isMobile ? <MobileEventiAdmin /> : <EventiAdmin />}
+                </PrivateRoute>
+              } 
+            />
+            
+            <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/music" element={<Music />} />
             <Route path="/eventi" element={<Eventi />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/utenti" element={<Utenti />} />
+
+            {/* Proteggi la rotta /admin con il permesso musicAccess */}
+            <Route 
+              path="/music-admin" 
+              element={
+                <PrivateRoute requiredPermission="musicAccess">
+                  <Music />
+                </PrivateRoute>
+              } 
+            />
+
+            {/* Proteggi la rotta /utenti con il permesso usersAccess */}
+            <Route 
+              path="/utenti" 
+              element={
+                <PrivateRoute requiredPermission="usersAccess">
+                  <Utenti />
+                </PrivateRoute>
+              } 
+            />
+            
+            {/* Proteggi la rotta /admin con il controllo di autenticazione e permessi */}
+            <Route 
+              path="/admin" 
+              element={
+                <PrivateRoute requiredPermission="adminAccess">
+                  <Admin />
+                </PrivateRoute>
+              }
+            />
           </Routes>
         </div>
       </Router>
